@@ -35,7 +35,8 @@
 
       //  Pull back appropriate list of chats (public vs private)
       if (vm.friend) {
-        vm.chats = $firebaseArray(FirebaseRef.db.child('users').child(currentUser.uid).child('chats').child(vm.friend));
+        //  TODO: get private chat thread
+        vm.chats = [];
       } else {
         vm.chats = $firebaseArray(FirebaseRef.db.child('chats'));
       }
@@ -120,11 +121,11 @@
         }
         // Private Chat
         if (vm.friend) {
-          updates['/users/' + currentUser.profile.uid + '/chats/' + vm.friend + '/' + key] = data;
+          //  TODO: push chat via updates to your own profile under chats and friend's Id (remember this is a simultaneous update)
         }
         // Don't want to save it twice if you are chatting with yourself
         if (vm.friend && vm.friend !== currentUser.profile.uid) {
-          updates['/users/' + vm.friend + '/chats/' + currentUser.profile.uid + '/' + key] = data;
+          //  TODO: push chat via updates to your friend's chat object under your Id (remember this is a simultaneous update)
         }
 
         //  Updating chat list(s)
