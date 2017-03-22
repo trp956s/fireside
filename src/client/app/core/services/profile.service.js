@@ -17,8 +17,7 @@
      */
     function getProfileByID ( id ) {
 
-      // create Firebase object with user data
-      return $firebaseObject(FirebaseRef.db.child('users').child(id).child('profile'));
+      // TODO: return firebase object of user profile
 
     } // end getProfileByID()
 

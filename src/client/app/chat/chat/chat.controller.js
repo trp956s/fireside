@@ -98,9 +98,9 @@
 
         // A new chat
         var data = {
-          uid: currentUser.profile.uid,
-          photoURL: currentUser.profile.photoURL,
-          displayName: currentUser.profile.displayName,
+          uid: '', //  TODO: get user authentication Id
+          photoURL: '', // TODO: get user url to profile image
+          displayName: '', // TODO: get user display name
           timestamp: new Date().toString()
         };
 

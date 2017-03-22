@@ -12,7 +12,8 @@
         active: 'chat',
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            return FirebaseAuth.$waitForSignIn();
+            //  TODO: return user authencation information if available
+            return null;
           }]
         }
       })
@@ -26,7 +27,8 @@
         controller: 'ChatController as vm',
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            return FirebaseAuth.$waitForSignIn();
+            //  TODO: return user authencation information if available
+            return null;
           }]
         }
       })
@@ -35,7 +37,8 @@
         controller: 'ChatController as vm',
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            return FirebaseAuth.$requireSignIn();
+            //  TODO: return user authentication information required
+            return null;
           }]
         }
       })
@@ -44,7 +47,8 @@
         controller: 'FriendsController as vm',
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            return FirebaseAuth.$requireSignIn();
+            //  TODO: return user authentication information required
+            return null;
           }]
         }
       })

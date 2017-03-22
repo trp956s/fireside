@@ -17,11 +17,11 @@
      * @return Promise
      */
     function authenticate(credentials) {
-      return $firebaseAuth()
-        .$signInWithPopup("google")
-        .then(function(userCredential) {
-          return processUserCredential(userCredential);
-        });
+      /*  TODO:
+            - Authenticate with google
+            - call processUserCredential on returned user credentials
+            - return a promise
+      */
     }
 
     /**
@@ -29,12 +29,7 @@
      * @return Promise
      */
     function logout() {
-      // Signout with Firebase and return the promise
-      return $firebaseAuth().$signOut().then(function() {
-        $location.url('/login');
-      }).catch(function(error) {
-        $location.url('/login');
-      });
+      //  TODO: Log user out and redirect to /login
     }
 
     /**
