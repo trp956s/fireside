@@ -15,15 +15,10 @@
       vm.searchResults = [];
       vm.searched = false;
 
-      // Load Friends
-      vm.friends = $firebaseArray(FirebaseRef.db.child('users').child(currentUser.uid).child('chats'));
+      // TODO: Load Friends from database here
+      vm.friends = [];
 
-      // Get Friends Profiles
-      vm.friends.$watch(function (event) {
-        angular.forEach(vm.friends, function (friend) {
-          friend.profile = ProfileSvc.getProfileByID(friend.$id);
-        });
-      });
+      // TODO: call getFriendsProfiles() when ever the friends list changes.
 
       /**
        * Search for friends
@@ -31,8 +26,16 @@
        */
       vm.searchUsers = function (email) {
         vm.searched = true;
-        vm.searchResults = $firebaseArray(FirebaseRef.db.child('profiles').orderByChild('email').equalTo(email));
+        // TODO: Populate results from firebase query inside of vm.searchResults
+        vm.searchResults = [];
       };
+
+
+      function getFriendsProfiles () {
+        angular.forEach(vm.friends, function (friend) {
+          friend.profile = ProfileSvc.getProfileByID(friend.$id);
+        });
+      }
 
   }
 
