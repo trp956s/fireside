@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" ng-app="app"><!-- ng-strict-di -->
+    <head>
+        <title>My Application</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Web App
+      	================================== -->
+      	<link rel="manifest" href="manifest.json">
+      	<meta name="mobile-web-app-capable" content="yes">
+
+      	<!-- Icons
+      	================================== -->
+      	<!-- Android -->
+      	<link rel="icon" sizes="128x128" href="images/icons/icon-128.png"/>
+      	<link rel="icon" sizes="192x192" href="images/icons/icon-192.png"/>
+
+      	<!-- Apple -->
+      	<link rel="apple-touch-icon" href="images/icons/icon-72.png"/>
+      	<link rel="apple-touch-icon" sizes="76x76" href="images/icons/icon-76.png"/>
+      	<link rel="apple-touch-icon" sizes="120x120" href="images/icons/icon-120.png"/>
+      	<link rel="apple-touch-icon" sizes="128x128" href="images/icons/icon-128.png">
+      	<link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152.png"/>
+      	<link rel="apple-touch-icon-precomposed" sizes="128x128" href="images/icons/icon-128.png">
+
+      	<!-- Startup Image (If user placed on home screen)-->
+      	<link rel="apple-touch-startup-image" href="images/icons/icon-128.png">
+
+      	<!-- Hide Safari User Interface -->
+      	<meta name="apple-mobile-web-app-capable" content="yes">
+
+      	<!-- change the status bar appearance
+      	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+      	-->
+
+        <link rel="icon" type="image/png" href="images/icons/icon_favicon.png">
+
+        <!-- build:css css/lib.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- TODO: get raleway into bower: @import 'https://fonts.googleapis.com/css?family=Raleway:400,700'; -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- build:css css/app.css -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/.tmp/app.css">
+        <!-- endinject -->
+        <!-- endbuild -->
+    </head>
+    <body ng-controller="mainController as app">
+
+        <!-- Skip nav link, only focassible or visible to screen reader -->
+        <!-- <a ng-click="main.scrollTo('content')" class="sr-only sr-only-focusable">Skip to main content</a> -->
+        <div class="flex-container">
+          <nav>
+            <div class="header">
+              <img src="images/fireside.svg" alt="fireside logo: three flames">Fireside
+              <button type="button" ng-click="app.toggleMenu(app.nav.mobileIsOpen)">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Open Menu</span>
+              </button>
+            </div>
+            <div class="items" ng-class="{'show': app.nav.mobileIsOpen}">
+              <a
+                ng-repeat="link in app.nav.links"
+                href="{{link.route}}"
+                ng-class="{ active: app.$route.current.active === link.active }"
+                ng-click="app.closeNav()"
+                ng-if="(app.user && link.auth === true) || (link.auth === 'public' || !app.user && link.auth === false) "
+              >
+                {{link.title}}
+              </a>
+              <a ng-if="app.user" role="button" ng-click="app.logout()">Logout</a>
+            </div>
+          </nav>
+
+          <div id="content" ng-view autoscroll="true"></div>
+
+          <footer class="clearfix">
+            <div class="social-media">
+              <a target="_blank" href="https://github.com/Mx3-Studio/fireside"><i class="fa fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+              <a target="_blank" href="https://playingwithfirelive.slack.com/"><i class="fa fa-slack" aria-hidden="true"></i><span>Slack<span></a>
+            </div>
+            <div class="copyright">
+              Copyright &copy; 3xM Studio {{app.today.getFullYear()}}
+            </div>
+          </footer>
+        </div>
+
+        <!-- build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="/bower_components/angular-route/angular-route.js"></script>
+        <script src="/bower_components/lodash/lodash.js"></script>
+        <script src="/bower_components/firebase/firebase.js"></script>
+        <script src="/bower_components/angularfire/dist/angularfire.js"></script>
+        <script src="/bower_components/angular-file-model/angular-file-model.js"></script>
+        <script src="/bower_components/angular-base64-upload/src/angular-base64-upload.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="app/app.module.js"></script>
+        <script src="app/chat/chat.module.js"></script>
+        <script src="app/core/core.module.js"></script>
+        <script src="app/friends/friends.module.js"></script>
+        <script src="app/users/users.module.js"></script>
+        <script src="app/app.config.js"></script>
+        <script src="app/app.routes.js"></script>
+        <script src="app/chat/chat/chat.controller.js"></script>
+        <script src="app/chat/filters/hash-tag.filter.js"></script>
+        <script src="app/core/check/check.controller.js"></script>
+        <script src="app/core/services/firebase-auth.service.js"></script>
+        <script src="app/core/services/firebase-ref.service.js"></script>
+        <script src="app/core/services/firebase-storage.service.js"></script>
+        <script src="app/core/services/profile.service.js"></script>
+        <script src="app/friends/friends/friends.controller.js"></script>
+        <script src="app/main.controller.js"></script>
+        <script src="app/users/login/login.controller.js"></script>
+        <!-- endinject -->
+
+
+        <!-- inject:templates:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+
+        <!-- manual:js -->
+        <div inject-script scripts="app.scripts"></div>
+        <!-- manual:js -->
+    </body>
+</html>
+</div>
+        <!-- manual:js -->
+    </body>
+</html>

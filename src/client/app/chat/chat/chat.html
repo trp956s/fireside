@@ -1,0 +1,64 @@
+<main class="chat">
+  <div>
+    <h1>Chat</h1>
+    <form>
+      <div class="input-group" ng-if="vm.postType === 'text'">
+        <span class="input-group-btn">
+          <button class="btn btn-default" ng-click="vm.toggleInputType('file')" aria-label="Change input to upload picture" type="button">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+          </button>
+        </span>
+        <input type="text" class="form-control" ng-model="vm.content" spellcheck="true">
+        <span class="input-group-btn">
+          <button
+            class="btn btn-default"
+            ng-click="vm.newChat(vm.content)"
+            aria-label="send"
+          >
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </span>
+      </div>
+      <div class="input-group" ng-if="vm.postType === 'file'">
+        <span class="input-group-btn">
+          <button class="btn btn-default" ng-click="vm.toggleInputType('text')" aria-label="Change input to type content" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          <label class="btn btn-default btn-file">
+            Select Image
+            <input type="file"
+                   class="hidden"
+                   file-model="image"
+                   accept="image/*"
+                   capture>
+          </label>
+        </span>
+        <input aria-label="Chosen File" type="text" class="form-control" value="{{image.name}}" disabled="false">
+        <span class="input-group-btn">
+          <label class="btn btn-default btn-file" ng-disabled="vm.uploadingImages || !image">
+            <i ng-if="vm.uploadingImages === false" class="fa fa-paper-plane" aria-hidden="true"></i>
+            <i ng-if="vm.uploadingImages === true" class="fa fa-spinner fa-pulse"></i>
+            <span ng-if="vm.uploadingImages === true" class="sr-only">Loading...</span>
+            <button type="button" class="btn btn-default hidden" ng-click="vm.sendImage(image)"></button>
+          </label>
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <div class="chat-list" id="chat-list">
+    <div ng-repeat="chat in vm.chats | orderBy:$index:'reverse' | filter:vm.hashTag" class="clearfix" ng-class="{'my-chat': chat.uid === vm.currentUser.uid}">
+      <span>
+        <div class="clearfix">
+          <span class="info">{{chat.displayName || ''}} <i ng-if="chat.displayName && chat.timestamp" class="fa fa-circle" aria-hidden="true"></i> {{ vm.filterDate(chat.timestamp); }}</span>
+        </div>
+        <div class="chat-bubble">
+          <img class="avatar" ng-if="chat.photoURL && chat.uid !== vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
+          <span class="message">
+            <span ng-bind-html="chat.content | hashTagLink"></span>
+            <img ng-if="chat.sentImage" ng-src="{{chat.sentImage}}" class="img-rounded" alt="User created image">
+          </span>
+          <img class="avatar" ng-if="chat.photoURL && chat.uid === vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
+        </div>
+      </span>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,29 @@
+<main class="friends">
+  <div>
+    <h1>Friends</h1>
+    <div ng-repeat="friend in vm.friends" class="clearfix">
+      <a href="#/friends/{{friend.profile.uid}}">
+        {{friend.profile.displayName}} - {{friend.profile.email}}
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <form>
+      <h2>Search</h2>
+      <div class="input-group">
+          <input type="text" class="form-control" ng-model="vm.query">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="vm.searchUsers(vm.query)">Search</button>
+          </span>
+      </div>
+    </form>
+    <div ng-if="vm.searched">
+      <h3>Search Results</h3>
+      <div ng-if="vm.searchResults.length === 0">Sorry, we didn't find any matches.</div>
+      <ul ng-repeat="result in vm.searchResults" class="clearfix">
+        <li><a href="#/friends/{{result.uid}}">{{result.displayName}} - {{result.email}}</a></li>
+      </ul>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,24 @@
+<main class="login">
+  <div class="panel panel-fireside">
+    <div class="panel-heading">
+      <h2 class="panel-title">Login</h2>
+    </div>
+    <div class="panel-body text-center">
+      <button class="google" ng-click="vm.authenticate()">
+        <img src="../../images/google-normal.png" alt="Sign in with Google">
+      </button>
+      <div class="error" role="alert" ng-if="vm.error">
+        <h2>Oops, an error has occured</h2>
+        <div>
+          <p>random content</p>
+          <p ng-if="vm.loginFail.message">
+            <strong>Message:</strong> {{vm.error.message}}
+          </p>
+          <p ng-if="vm.loginFail.code">
+            <strong>Code:</strong> {{vm.error.code}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
