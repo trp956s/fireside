@@ -3,11 +3,12 @@
     <h1>Chat</h1>
     <form>
       <div class="input-group" ng-if="vm.postType === 'text'">
-        <span class="input-group-btn">
+        <!-- TOGGLE IMAGE AND TEXT INPUTS -->
+        <!-- <span class="input-group-btn">
           <button class="btn btn-default" ng-click="vm.toggleInputType('file')" aria-label="Change input to upload picture" type="button">
             <i class="fa fa-camera" aria-hidden="true"></i>
           </button>
-        </span>
+        </span> -->
         <input type="text" class="form-control" ng-model="vm.content" spellcheck="true">
         <span class="input-group-btn">
           <button
@@ -19,7 +20,8 @@
           </button>
         </span>
       </div>
-      <div class="input-group" ng-if="vm.postType === 'file'">
+      <!-- IMAGE UPLOAD -->
+      <!-- <div class="input-group" ng-if="vm.postType === 'file'">
         <span class="input-group-btn">
           <button class="btn btn-default" ng-click="vm.toggleInputType('text')" aria-label="Change input to type content" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
           <label class="btn btn-default btn-file">
@@ -40,7 +42,8 @@
             <button type="button" class="btn btn-default hidden" ng-click="vm.sendImage(image)"></button>
           </label>
         </span>
-      </div>
+      </div> -->
+      <!-- END IMAGE UPLOAD -->
     </form>
   </div>
 
@@ -54,7 +57,7 @@
           <img class="avatar" ng-if="chat.photoURL && chat.uid !== vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
           <span class="message">
             <span ng-bind-html="chat.content | hashTagLink"></span>
-            <img ng-if="chat.sentImage" ng-src="{{chat.sentImage}}" class="img-rounded" alt="User created image">
+            <!-- <img ng-if="chat.sentImage" ng-src="{{chat.sentImage}}" class="img-rounded" alt="User created image"> -->
           </span>
           <img class="avatar" ng-if="chat.photoURL && chat.uid === vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
         </div>
