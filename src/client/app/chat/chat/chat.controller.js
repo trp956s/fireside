@@ -38,7 +38,8 @@
         //  TODO: get private chat thread
         vm.chats = [];
       } else {
-        vm.chats = $firebaseArray(FirebaseRef.db.child('chats'));
+        //  TODO: get chat thread
+        vm.chats = [];
       }
 
       /**
@@ -108,8 +109,8 @@
         if (url) { data.sentImage = url.a.downloadURLs[0]; }
         if (imageLocation) { data.imageLocation = imageLocation; }
 
-        // Get Key for new Chat
-        var key = FirebaseRef.db.child('/chats').push().key;
+        // TODO: Get Key for new Chat
+        var key = "";
 
         //  Write the new chat's data either in public chat
         //  OR
@@ -117,7 +118,7 @@
         var updates = {};
         // Public chat
         if (!vm.friend) {
-          updates['/chats/' + key] = data;
+          //  TODO: push chat to chat thread (remember this is a simultaneous update)
         }
         // Private Chat
         if (vm.friend) {
