@@ -1,0 +1,110 @@
+{
+  "chats" : {
+    "-Kf9kfiG0rwnlB1gtquA" : {
+      "content" : "Hey",
+      "displayName" : "Martine Dowden",
+      "photoURL" : "https://lh5.googleusercontent.com/-FAXUvcrxQ0M/AAAAAAAAAAI/AAAAAAAADlw/zLRZGhQCj18/photo.jpg",
+      "timestamp" : "Mon Mar 13 2017 23:00:44 GMT-0400 (EDT)",
+      "uid" : "nHl5MeWq4FaZHGD6ssqJcUmZZy22"
+    },
+    "-KfDsY-CD7NJC1BVAWWx" : {
+      "content" : "Welcome to #PlayingWithFire",
+      "displayName" : "Michael McGinnis",
+      "photoURL" : "https://lh4.googleusercontent.com/-7P1R9wO_pGY/AAAAAAAAAAI/AAAAAAAAAIA/-9COer4aJk0/photo.jpg",
+      "timestamp" : "Tue Mar 14 2017 18:13:35 GMT-0400 (EDT)",
+      "uid" : "3gtKgnNf1GbkVRaxnUmAPY1Ecev2"
+    },
+    "-KfnczvWFoiWAl4bLNjN" : {
+      "content" : "Hello World",
+      "displayName" : "Michael Dowden",
+      "photoURL" : "https://lh4.googleusercontent.com/-0vEGa3Vs5i4/AAAAAAAAAAI/AAAAAAAABYw/-3etvfmO8bE/photo.jpg",
+      "timestamp" : "Tue Mar 21 2017 21:31:34 GMT-0400 (EDT)",
+      "uid" : "pLS2hnnzz9Yw19tPfuF9JcGfOVm1"
+    }
+  },
+  "check" : {
+    "status" : "You are connected to the database"
+  },
+  "profiles" : {
+    "3gtKgnNf1GbkVRaxnUmAPY1Ecev2" : {
+      "displayName" : "Michael McGinnis",
+      "email" : "mybrokenwalls@gmail.com",
+      "photoURL" : "https://lh4.googleusercontent.com/-7P1R9wO_pGY/AAAAAAAAAAI/AAAAAAAAAIA/-9COer4aJk0/photo.jpg",
+      "uid" : "3gtKgnNf1GbkVRaxnUmAPY1Ecev2"
+    },
+    "nHl5MeWq4FaZHGD6ssqJcUmZZy22" : {
+      "displayName" : "Martine Dowden",
+      "email" : "tiny@dowden.us",
+      "photoURL" : "https://lh5.googleusercontent.com/-FAXUvcrxQ0M/AAAAAAAAAAI/AAAAAAAADlw/zLRZGhQCj18/photo.jpg",
+      "uid" : "nHl5MeWq4FaZHGD6ssqJcUmZZy22"
+    },
+    "pLS2hnnzz9Yw19tPfuF9JcGfOVm1" : {
+      "displayName" : "Michael Dowden",
+      "email" : "michael@dowden.us",
+      "photoURL" : "https://lh4.googleusercontent.com/-0vEGa3Vs5i4/AAAAAAAAAAI/AAAAAAAABYw/-3etvfmO8bE/photo.jpg",
+      "uid" : "pLS2hnnzz9Yw19tPfuF9JcGfOVm1"
+    }
+  },
+  "users" : {
+    "3gtKgnNf1GbkVRaxnUmAPY1Ecev2" : {
+      "chats" : {
+        "nHl5MeWq4FaZHGD6ssqJcUmZZy22" : {
+          "-KfnZvO-j1_b7ecKrxrc" : {
+            "content" : "Private chat!",
+            "displayName" : "Martine Dowden",
+            "photoURL" : "https://lh5.googleusercontent.com/-FAXUvcrxQ0M/AAAAAAAAAAI/AAAAAAAADlw/zLRZGhQCj18/photo.jpg",
+            "timestamp" : "Tue Mar 21 2017 21:13:48 GMT-0400 (EDT)",
+            "uid" : "nHl5MeWq4FaZHGD6ssqJcUmZZy22"
+          },
+          "-KfnbA6bBXlefY-ifJvy" : {
+            "content" : "Okay!",
+            "displayName" : "Michael McGinnis",
+            "photoURL" : "https://lh4.googleusercontent.com/-7P1R9wO_pGY/AAAAAAAAAAI/AAAAAAAAAIA/-9COer4aJk0/photo.jpg",
+            "timestamp" : "Tue Mar 21 2017 21:23:37 GMT-0400 (EDT)",
+            "uid" : "3gtKgnNf1GbkVRaxnUmAPY1Ecev2"
+          }
+        }
+      },
+      "profile" : {
+        "displayName" : "Michael McGinnis",
+        "email" : "mybrokenwalls@gmail.com",
+        "photoURL" : "https://lh4.googleusercontent.com/-7P1R9wO_pGY/AAAAAAAAAAI/AAAAAAAAAIA/-9COer4aJk0/photo.jpg",
+        "uid" : "3gtKgnNf1GbkVRaxnUmAPY1Ecev2"
+      }
+    },
+    "nHl5MeWq4FaZHGD6ssqJcUmZZy22" : {
+      "chats" : {
+        "3gtKgnNf1GbkVRaxnUmAPY1Ecev2" : {
+          "-KfnZvO-j1_b7ecKrxrc" : {
+            "content" : "Private chat!",
+            "displayName" : "Martine Dowden",
+            "photoURL" : "https://lh5.googleusercontent.com/-FAXUvcrxQ0M/AAAAAAAAAAI/AAAAAAAADlw/zLRZGhQCj18/photo.jpg",
+            "timestamp" : "Tue Mar 21 2017 21:13:48 GMT-0400 (EDT)",
+            "uid" : "nHl5MeWq4FaZHGD6ssqJcUmZZy22"
+          },
+          "-KfnbA6bBXlefY-ifJvy" : {
+            "content" : "Okay!",
+            "displayName" : "Michael McGinnis",
+            "photoURL" : "https://lh4.googleusercontent.com/-7P1R9wO_pGY/AAAAAAAAAAI/AAAAAAAAAIA/-9COer4aJk0/photo.jpg",
+            "timestamp" : "Tue Mar 21 2017 21:23:37 GMT-0400 (EDT)",
+            "uid" : "3gtKgnNf1GbkVRaxnUmAPY1Ecev2"
+          }
+        }
+      },
+      "profile" : {
+        "displayName" : "Martine Dowden",
+        "email" : "tiny@dowden.us",
+        "photoURL" : "https://lh5.googleusercontent.com/-FAXUvcrxQ0M/AAAAAAAAAAI/AAAAAAAADlw/zLRZGhQCj18/photo.jpg",
+        "uid" : "nHl5MeWq4FaZHGD6ssqJcUmZZy22"
+      }
+    },
+    "pLS2hnnzz9Yw19tPfuF9JcGfOVm1" : {
+      "profile" : {
+        "displayName" : "Michael Dowden",
+        "email" : "michael@dowden.us",
+        "photoURL" : "https://lh4.googleusercontent.com/-0vEGa3Vs5i4/AAAAAAAAAAI/AAAAAAAABYw/-3etvfmO8bE/photo.jpg",
+        "uid" : "pLS2hnnzz9Yw19tPfuF9JcGfOVm1"
+      }
+    }
+  }
+}
