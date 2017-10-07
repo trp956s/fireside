@@ -43,18 +43,7 @@ gulp.task('styles-less', function() {
     .pipe(gulp.dest(config.temp));
 });
 
-gulp.task('styles-sass', function() {
-  log('Compiling SASS --> CSS');
-
-  return gulp
-    .src(config.sass)
-    .pipe($.plumber())
-    .pipe($.sass())
-    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
-    .pipe(gulp.dest(config.temp));
-});
-
-gulp.task('styles', ['clean-styles', 'styles-less', 'styles-sass']);
+gulp.task('styles', ['clean-styles', 'styles-less']);
 
 gulp.task('fonts', function() {
   log('Copying fonts');
@@ -108,10 +97,6 @@ gulp.task('clean-code', function() {
   return clean(files);
 });
 
-gulp.task('sass-watcher', function() {
-  gulp.watch([config.sass], ['styles-sass']);
-});
-
 gulp.task('less-watcher', function() {
   gulp.watch([config.less], ['styles-less']);
 });
@@ -157,7 +142,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
     .pipe(gulp.dest(config.client));
 });
 
-gulp.task('serve-dev', ['inject', 'less-watcher', 'sass-watcher'], function() {
+gulp.task('serve-dev', ['inject', 'less-watcher'], function() {
   return serve(true /* isDev */);
 });
 
