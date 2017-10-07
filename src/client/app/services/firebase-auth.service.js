@@ -29,12 +29,7 @@
      * @return Promise
      */
     function logout() {
-      // Signout with Firebase and return the promise
-      return $firebaseAuth().$signOut().then(function() {
-        $location.url('/login');
-      }).catch(function(error) {
-        $location.url('/login');
-      });
+      return $firebaseAuth().$signOut();
     }
 
     /**

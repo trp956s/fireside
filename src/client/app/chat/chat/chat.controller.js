@@ -3,13 +3,13 @@
 
   angular.module('app.chat').controller('ChatController', ChatController);
 
-  function ChatController(Chats, FirebaseRef, $firebaseArray, currentUser, ProfileSvc, $filter, $routeParams, Images, $scope) {
+  function ChatController(currentUser, Chats, Images, Profile, $filter, $routeParams, $scope) {
 
     var vm = this;
 
     // Get the current user's information
     if (currentUser) {
-      currentUser.profile = ProfileSvc.getProfileByID(currentUser.uid);
+      currentUser.profile = Profile.getProfileByID(currentUser.uid);
     }
 
     // Config

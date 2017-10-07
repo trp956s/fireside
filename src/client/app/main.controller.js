@@ -63,7 +63,13 @@
     });
 
     app.logout = function() {
-      FirebaseAuth.logout();
+      FirebaseAuth.logout().then(function() {
+        $location.url('/login');
+      }).catch(function(error) {
+        console.log('Error: ', error);
+        $location.url('/login');
+      });
+      
       app.nav.mobileIsOpen = false;
     };
 

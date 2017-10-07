@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module('app.svc')
-    .service('ProfileSvc', ['FirebaseRef', '$firebaseObject', ProfileService]);
+    .service('Profile', ['FirebaseRef', '$firebaseObject', ProfileService]);
 
   function ProfileService(FirebaseRef, $firebaseObject) {
 
