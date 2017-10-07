@@ -7,14 +7,19 @@
 
     var vm = this;
 
+    var friendId;
+    if ($routeParams.friend) {
+      // we are in a private chat
+      friendId = $routeParams.friend;
+    }
+
     // Get the current user's information
     if (currentUser) {
-      currentUser.profile = Profile.getProfileByID(currentUser.uid);
+      currentUser.profile = Profile.getById(currentUser.uid);
     }
 
     // Config
     vm.currentUser = currentUser;
-    vm.hashTag = '';
     vm.postType = 'text';
     vm.uploadingImages = false;
 
@@ -24,17 +29,14 @@
      */
     vm.toggleInputType = function (type) { vm.postType = type; };
 
-    //  Determine whether chats are filtered for hashtags
+    vm.hashTag = '';
     if ($routeParams.hash) {
+      //  chats are filtered for hashtags
       vm.hashTag = '#' + $routeParams.hash;
-
-      // Determine whether we are in a private chat
-    } else if ($routeParams.friend) {
-      vm.friend = $routeParams.friend;
     }
 
     //  Pull back appropriate list of chats (public vs private)
-    vm.chats = vm.friend ? Chats.listWithFriend(currentUser.uid, vm.friend) : Chats.listAll();
+    vm.chats = friendId ? Chats.listWithFriend(currentUser.uid, friendId) : Chats.listAll();
 
     /**
      * Format chat timestamp to make it human readable

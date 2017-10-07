@@ -1,11 +1,11 @@
-(function() {
+(function () {
   "use strict";
 
   angular.module('app.svc')
 
-  .service('FirebaseAuth', ['FirebaseRef', '$firebaseAuth', '$location', FirebaseAuthService]);
+    .service('FirebaseAuth', ['Profile', '$firebaseAuth', FirebaseAuthService]);
 
-  function FirebaseAuthService(FirebaseRef, $firebaseAuth, $location) {
+  function FirebaseAuthService(Profile, $firebaseAuth) {
     return angular.merge($firebaseAuth(), {
       authenticate: authenticate,
       logout: logout
@@ -19,9 +19,7 @@
     function authenticate(credentials) {
       return $firebaseAuth()
         .$signInWithPopup("google")
-        .then(function(userCredential) {
-          return processUserCredential(userCredential);
-        });
+        .then(processUserCredential);
     }
 
     /**
@@ -46,7 +44,9 @@
         email: userCredential.user.email,
         photoURL: userCredential.user.photoURL,
       };
-      saveProfile(userProfile, userCredential.credential.provider);
+
+      Profile.store(userProfile, userCredential.credential.provider);
+
       // Return User Auth object as the result of this
       return {
         token: userCredential.credential.accessToken,
@@ -54,24 +54,6 @@
         provider: userCredential.credential.provider,
         uid: userProfile.uid
       };
-    }
-
-    /**
-     * Store the UserProfile into Firebase.
-     * @param userProfile app.UserProfile
-     * @param provider the latest authentication provider
-     * @return Promise
-     */
-    function saveProfile(userProfile, provider) {
-      // Create a Profile starting with the User
-      var profile = angular.copy(userProfile);
-
-      // Replace the current Profile with the new Profile
-      // Replace profile in profiles
-      var updates = {};
-      updates['/users/' + profile.uid + '/profile'] = profile;
-      updates['/profiles/' + profile.uid] = profile;
-      return FirebaseRef.db.update(updates);
     }
 
   }

@@ -11,14 +11,13 @@
       search: searchFriends,
     };
 
-
     function listFriends(uid) {
       var list = $firebaseArray(FirebaseRef.db.child('users').child(uid).child('chats'));
 
       // Get Friends Profile
       list.$watch(function () {
         angular.forEach(list, function (friend) {
-          friend.profile = Profile.getProfileByID(friend.$id);
+          friend.profile = Profile.getById(friend.$id);
         });
       });
 
