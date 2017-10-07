@@ -22,21 +22,21 @@
     app.nav = {
       mobileIsOpen: false,
       links: [{
-        route: '#/',
+        route: '/',
         title: 'Chat',
         active: 'chat',
         order: 1,
         auth: 'public'
       },
       {
-        route: '#/friends',
+        route: '/friends',
         title: 'Friends',
         active: 'friends',
         order: 2,
         auth: true
       },
       {
-      route: '#/login',
+      route: '/login',
       title: 'Login',
       active: 'login',
       order: 3,

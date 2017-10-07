@@ -11,16 +11,13 @@
     "users": {
       "$user_id": {
         ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid",
         "profile": {
-          ".read": 	true,
-          ".write": "$user_id === auth.uid"
-        },
-        "friends": {
-          ".write": "$user_id === auth.uid"
+          ".read": 	true
         },
         "chats": {
           "$chat_id": {
-            ".write": "$user_id === auth.uid || $chat_id === auth.uid"
+            ".write": "$chat_id === auth.uid"
           }
         }
       }

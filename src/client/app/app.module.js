@@ -6,6 +6,7 @@
       'ngRoute',
       'ui.bootstrap',
       'firebase',
+      'app.svc',
       'app.core',
       'app.chat',
       'app.users',

@@ -2,11 +2,11 @@
 (function() {
   'use strict';
 
-  angular.module('app.core')
-  .factory('FirebaseStorage', ['FirebaseRef', FirebaseStorageService]);
+  angular.module('app.svc')
+  .factory('Images', ['FirebaseRef', ImagesService]);
 
 
-  function FirebaseStorageService(FirebaseRef) {
+  function ImagesService(FirebaseRef) {
 
     //var storage = firebase.storage(); // Initalize Firebase Storage
     var storageRef = FirebaseRef.storage; // Create Reference
@@ -19,12 +19,13 @@
 
     /**
     * Upload an image to firebase storage
-    * @param location
-    * @param file
+    * @param profile the user profile
+    * @param image the image object
     * @return {Promise} - firebase response
     */
-    function uploadImage(location, file) {
-      return firebaseImages.child(location).put(file);
+    function uploadImage(profile, image) {
+      var imageLocation = profile.uid + '/' + Date.now() + '/' + image.name;
+      return firebaseImages.child(imageLocation).put(image);
     } // uploadImage
     
     /**
