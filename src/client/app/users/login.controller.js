@@ -2,9 +2,9 @@
   "use strict";
 
   angular.module('app.users')
-    .controller('LoginController', ['$routeParams', 'FirebaseAuth', '$location', LoginController]);
+    .controller('LoginController', ['FirebaseAuth', '$location', LoginController]);
 
-  function LoginController($routeParams, FirebaseAuth, $location) {
+  function LoginController(FirebaseAuth, $location) {
 
     var vm = this;
     vm.error = false;

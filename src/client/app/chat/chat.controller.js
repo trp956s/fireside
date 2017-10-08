@@ -52,7 +52,7 @@
      * @param content
      */
     vm.newChat = function (content) {
-      Chats.postMessage(currentUser.profile, content, vm.friend).then(
+      Chats.postMessage(currentUser.profile, content, friendId).then(
         disableSpinner, handleError);
     };
 
@@ -78,7 +78,7 @@
       // Upload Image into Firebase Storage and add to Chat
       Images.uploadImage(currentUser.profile, image)
         .then(function (url) {
-          Chats.postImage(currentUser.profile, url.a.downloadURLs[0], vm.friend).then(
+          Chats.postImage(currentUser.profile, url.a.downloadURLs[0], friendId).then(
             disableSpinner, handleError);
         });
     };

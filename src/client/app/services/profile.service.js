@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   angular.module('app.svc')
@@ -6,21 +6,14 @@
 
   function ProfileService(FirebaseRef, $firebaseObject) {
 
-    return {
-      getById: getProfileById,
-      store: saveProfile,
-    };
-
     /**
      * get user info
-     * @param {String} id - user ID
+     * @param {String} uid - user ID
      * @returns {Promise<FirebaseObject>} - user info
      */
-    function getProfileById ( id ) {
-
-      // create Firebase object with user data
-      return $firebaseObject(FirebaseRef.db.child('users').child(id).child('profile'));
-
+    function getProfileById(uid) {
+      // TODO - Return user profile [AUTH-4]
+      return $firebaseObject(FirebaseRef.db.child('users').child(uid).child('profile'));
     }
 
     /**
@@ -30,16 +23,21 @@
      * @return Promise
      */
     function saveProfile(userProfile, provider) {
-      // Create a Profile starting with the User
-      var profile = angular.copy(userProfile);
-
-      // Replace the current Profile with the new Profile
-      // Replace profile in profiles
       var updates = {};
-      updates['/users/' + profile.uid + '/profile'] = profile;
-      updates['/profiles/' + profile.uid] = profile;
-      return FirebaseRef.db.update(updates);
+      // TODO - Update the user profile with the new profile data (under /users/{userId}/profile) [AUTH-5]
+      return FirebaseRef.db.child('/users/' + userProfile.uid + '/profile').update(userProfile);
     }
+
+
+    // ==================================================================== //
+    // ========== DO NOT NEED TO MODIFY ANYTHING BELOW THIS LINE ========== //
+    // ==================================================================== //
+
+
+    return {
+      getById: getProfileById,
+      store: saveProfile,
+    };
 
   }
 

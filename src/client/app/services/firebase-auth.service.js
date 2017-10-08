@@ -6,10 +6,6 @@
     .service('FirebaseAuth', ['Profile', '$firebaseAuth', FirebaseAuthService]);
 
   function FirebaseAuthService(Profile, $firebaseAuth) {
-    return angular.merge($firebaseAuth(), {
-      authenticate: authenticate,
-      logout: logout
-    });
 
     /**
      * Authenticate a user with the specified credentials.
@@ -17,9 +13,11 @@
      * @return Promise
      */
     function authenticate(credentials) {
+      // TODO - Login using Google OAuth, making sure to return the Promise [AUTH-1]
       return $firebaseAuth()
         .$signInWithPopup("google")
         .then(processUserCredential);
+      // TODO - Call processUserCredential upon successful login, returning the Promise [AUTH-2]
     }
 
     /**
@@ -27,15 +25,30 @@
      * @return Promise
      */
     function logout() {
+      // TODO - Logout, making sure to return the Promise [AUTH-3]
       return $firebaseAuth().$signOut();
     }
+
+
+    // ==================================================================== //
+    // ========== DO NOT NEED TO MODIFY ANYTHING BELOW THIS LINE ========== //
+    // ==================================================================== //
+
+
+    /**
+     * Returns the service object which extends the $firebaseAuth object for convenience.
+     */
+    return angular.merge($firebaseAuth(), {
+      authenticate: authenticate,
+      logout: logout
+    });
 
     /**
      * Performs the necessary tasks on the firebase.UserCredential object
      * returned by Firebase and returns a clean UserAuth object.
+     * @private
      * @param userCredential firebase.UserCredential
      * @return app.UserAuth
-     * @private
      */
     function processUserCredential(userCredential) {
       var userProfile = {
