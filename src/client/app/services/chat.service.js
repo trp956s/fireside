@@ -1,6 +1,12 @@
 (function () {
     "use strict";
 
+    /**
+     * This service retrieves public chats and private chats between friends. It also
+     * creates new chats, either text messages or images.
+     * @requires FirebaseRef for the Firebase database reference
+     * @requires $firebaseArray to return results from Firebase as an array
+     */
     angular.module('app.svc')
         .service('Chats', ['FirebaseRef', '$firebaseArray', ChatsService]);
 

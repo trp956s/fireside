@@ -2,6 +2,10 @@
 (function () {
   'use strict';
 
+  /**
+   * This service manages images, both uploading and deleting.
+   * @requires FirebaseRef for the Firebase storage reference
+   */
   angular.module('app.svc')
     .factory('Images', ['FirebaseRef', ImagesService]);
 

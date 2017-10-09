@@ -1,6 +1,9 @@
 (function () {
   "use strict";
 
+  /**
+   * This service initializes Firebase and returns references to the database and storage.
+   */
   angular.module('app.svc')
     .service('FirebaseRef', FirebaseRefService);
 

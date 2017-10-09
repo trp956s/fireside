@@ -1,6 +1,11 @@
 (function () {
   "use strict";
 
+  /**
+   * This is where Routes to the various Controllers are managed. To restrict access
+   * to individual routes, or to provide user data in advance of the Controller being
+   * created, a resolve object will need to be added to each route.
+   */
   angular.module('app')
     .config(['$routeProvider', Routes]);
 

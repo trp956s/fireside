@@ -1,6 +1,11 @@
 (function () {
   "use strict";
 
+  /**
+   * This service handles authentication with Google OAuth.
+   * @requires Profile to create user profiles
+   * @requires $firebaseAuth to access the Firebase authentication API
+   */
   angular.module('app.svc')
 
     .service('FirebaseAuth', ['Profile', '$firebaseAuth', FirebaseAuthService]);
@@ -8,7 +13,9 @@
   function FirebaseAuthService(Profile, $firebaseAuth) {
 
     /**
-     * Authenticate a user with the specified credentials.
+     * Authenticate a user with the specified credentials. Need to be sure that this 
+     * calls processUserCredential upon successful login to create the Profile and
+     * return the expected user data.
      * @param credentials app.Credentials
      * @return Promise
      */

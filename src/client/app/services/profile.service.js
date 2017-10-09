@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  /**
+   * This service manages user profiles including lookup by user ID and 
+   * creating new profiles from an auth record.
+   * @requires FirebaseRef for the Firebase database reference
+   * @requires $firebaseObject to return results from Firebase as an object
+   */
   angular.module('app.svc')
     .service('Profile', ['FirebaseRef', '$firebaseObject', ProfileService]);
 

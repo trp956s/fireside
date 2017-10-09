@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  /**
+   * This service searches for user profiles and also lists existing friends.
+   * @requires Profile to lookup user profiles
+   * @requires FirebaseRef for the Firebase database reference
+   * @requires $firebaseArray to return results from Firebase as an array
+   */
   angular.module('app.svc')
     .service('Friends', ['Profile', 'FirebaseRef', '$firebaseArray', FriendsService]);
 
