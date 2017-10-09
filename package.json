@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.7.9",
-    "connect": "^3.4.1",
+    "connect": "^3.6.5",
     "del": "^2.2.2",
     "express": "^4.16.1",
     "gulp": "^3.9.1",

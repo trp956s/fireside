@@ -85,6 +85,7 @@
 
     // Function to update the UI and disable the spinner
     function disableSpinner() {
+      vm.content = "";
       vm.uploadingImages = false;
       $scope.$apply();
     }

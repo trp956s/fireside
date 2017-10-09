@@ -24,8 +24,11 @@
      */
     function saveProfile(userProfile, provider) {
       var updates = {};
+      // TODO - Update the global profile with the new profile data (under /profiles) [AUTH-5]
+      updates['/profiles'] = userProfile;
+      updates['/users/' + userProfile.uid + '/profile'] = userProfile;
       // TODO - Update the user profile with the new profile data (under /users/{userId}/profile) [AUTH-5]
-      return FirebaseRef.db.child('/users/' + userProfile.uid + '/profile').update(userProfile);
+      return FirebaseRef.db.update(updates);
     }
 
 

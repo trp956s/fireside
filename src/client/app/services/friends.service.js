@@ -26,7 +26,7 @@
       var list = $firebaseArray(FirebaseRef.db.child('users').child(uid).child('chats'));
 
       // TODO - watch for changes to the list and add a .profile element to each object, 
-      // using the Profile service to look up the profile for each ID [PVT-4]
+      // using the Profile service to look up the profile for each ID [PVT-5]
       list.$watch(function () {
         angular.forEach(list, function (friend) {
           friend.profile = Profile.getById(friend.$id);

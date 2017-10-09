@@ -17,7 +17,7 @@
     */
     function uploadImage(profile, image) {
       // TODO - save an image to Firebase in a user-based path (/images/{userId}/{timestamp}/{imageName}) [IMG-3]
-      var imageLocation = profile.uid + '/' + Date.now() + '/' + image.name;
+      var imageLocation = profile.uid + '/' + Date.now() + '-' + image.name;
       return firebaseImages.child(imageLocation).put(image);
     } // uploadImage
 
