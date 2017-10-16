@@ -1,19 +1,20 @@
 <main class="chat">
   <div ng-if="vm.currentUser">
     <h1>Chat</h1>
-    <form>
+    <form ng-submit="vm.newChat(vm.content)">
       <div class="input-group" ng-if="vm.postType === 'text'">
         <span class="input-group-btn">
           <button class="btn btn-default" ng-click="vm.toggleInputType('file')" aria-label="Change input to upload picture" type="button">
             <i class="fa fa-camera" aria-hidden="true"></i>
           </button>
         </span>
-        <input type="text" class="form-control" ng-model="vm.content" spellcheck="true">
+        <input type="text" class="form-control" ng-model="vm.content" spellcheck="true" required>
         <span class="input-group-btn">
           <button
             class="btn btn-default"
-            ng-click="vm.newChat(vm.content)"
             aria-label="send"
+            type="submit"
+            value="Submit"
           >
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
           </button>
