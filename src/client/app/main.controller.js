@@ -22,21 +22,21 @@
     app.nav = {
       mobileIsOpen: false,
       links: [{
-        route: '#/',
+        route: '/',
         title: 'Chat',
         active: 'chat',
         order: 1,
         auth: 'public'
       },
       {
-        route: '#/friends',
+        route: '/friends',
         title: 'Friends',
         active: 'friends',
         order: 2,
         auth: true
       },
       {
-      route: '#/login',
+      route: '/login',
       title: 'Login',
       active: 'login',
       order: 3,
@@ -63,7 +63,13 @@
     });
 
     app.logout = function() {
-      FirebaseAuth.logout();
+      FirebaseAuth.logout().then(function() {
+        $location.url('/login');
+      }).catch(function(error) {
+        console.log('Error: ', error);
+        $location.url('/login');
+      });
+      
       app.nav.mobileIsOpen = false;
     };
 

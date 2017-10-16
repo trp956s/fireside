@@ -29,12 +29,11 @@
 
 * Gulp Task Summary
     * inject -- injects all bower and custom JS and CSS into the index.html
-    * styles -- compiles all LESS and SASS files into CSS
+    * styles -- compiles all LESS files into CSS
     * validate -- runs JSHint and JSCS on the source code
-    * sass-watcher -- run in the background to auto-compile SASS on save
     * less-watcher -- run in the background to auto-compile LESS on save
     * build -- creates a production-ready build
-    * serve-dev -- runs the dev version of the application in a Node server, watching for SASS/LESS changes
+    * serve-dev -- runs the dev version of the application in a Node server, watching for LESS changes
     * serve-build -- runs the build version of the application in a Node server
 * To see the complete list of Gulp tasks:
 
