@@ -29,7 +29,7 @@
          */
         function listChatsWithFriend(uid, friendId) {
             // TODO - Return all chats between friends [PVT-2]
-            return $firebaseArray(FirebaseRef.db.child('users').child(uid).child('chats').child(friendId));
+            return [];
         }
 
         /**
@@ -58,12 +58,10 @@
             // Private Chat
             if (friendId) {
                 // TODO - Add the Chat Data to the updates for YOUR Friend Chat object [PVT-3]
-                updates['/users/' + uid + '/chats/' + friendId + '/' + chatId] = chatData;
 
                 // Don't want to save it twice if you are chatting with yourself
                 if (friendId !== uid) {
                     // TODO - Add the Chat Data to the updates for your FRIEND'S Friend Chat object [PVT-3]
-                    updates['/users/' + friendId + '/chats/' + uid + '/' + chatId] = chatData;
                 }
             }
 

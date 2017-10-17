@@ -19,7 +19,7 @@
      */
     function searchFriends(email) {
       // TODO - Return a list of user profiles matching the given email address [PVT-1]
-      return $firebaseArray(FirebaseRef.db.child('profiles').orderByChild('email').equalTo(email));
+      return [];
     }
 
     /**
@@ -29,15 +29,10 @@
      */
     function listFriends(uid) {
       // TODO - Assign the 'list' variable to a list of chat friend user IDs (from /users/{userId}/chats) [PVT-4]
-      var list = $firebaseArray(FirebaseRef.db.child('users').child(uid).child('chats'));
+      var list = [];
 
       // TODO - watch for changes to the list and add a .profile element to each object, 
       // using the Profile service to look up the profile for each ID [PVT-5]
-      list.$watch(function () {
-        angular.forEach(list, function (friend) {
-          friend.profile = Profile.getById(friend.$id);
-        });
-      });
 
       return list;
     }
