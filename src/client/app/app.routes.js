@@ -21,9 +21,9 @@
         active: 'chat',
         // TODO - Add a resolve that provides an optional currentUser object [AUTH-7]
         resolve: {
-          currentUser: ['FirebaseAuth', function (FirebaseAuth) {
-            return FirebaseAuth.$waitForSignIn();
-          }]
+          currentUser: function() {
+            return {};
+          }
         }
       })
       .when('/hashtag/:hash', {
@@ -31,9 +31,9 @@
         controller: 'ChatController as vm',
         // TODO - Add a resolve that provides an optional currentUser object [AUTH-7]
         resolve: {
-          currentUser: ['FirebaseAuth', function (FirebaseAuth) {
-            return FirebaseAuth.$waitForSignIn();
-          }]
+          currentUser: function() {
+            return {};
+          }
         }
       })
       .when('/login', {
@@ -46,9 +46,9 @@
         controller: 'FriendsController as vm',
         // TODO - Add a resolve that requires authentication and provides a currentUser object [AUTH-8]
         resolve: {
-          currentUser: ['FirebaseAuth', function (FirebaseAuth) {
-            return FirebaseAuth.$requireSignIn();
-          }]
+          currentUser: function() {
+            return {};
+          }
         }
       })
       .when('/friends/:friend', {
@@ -56,9 +56,9 @@
         controller: 'ChatController as vm',
         // TODO - Add a resolve that requires authentication and provides a currentUser object [AUTH-8]
         resolve: {
-          currentUser: ['FirebaseAuth', function (FirebaseAuth) {
-            return FirebaseAuth.$requireSignIn();
-          }]
+          currentUser: function() {
+            return {};
+          }
         }
       })
       .otherwise({

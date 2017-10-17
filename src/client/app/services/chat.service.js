@@ -78,9 +78,6 @@
         function createChatDataForProfile(profile) {
             return {
                 // TODO - Add uid, avatar, and name from Profile [AUTH-6]
-                uid: profile.uid,
-                photoURL: profile.photoURL,
-                displayName: profile.displayName,
                 timestamp: new Date().toUTCString()
             };
         }
