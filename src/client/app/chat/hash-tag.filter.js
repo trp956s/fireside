@@ -15,7 +15,7 @@
       var replacedText = $filter('linky')(text);
 
       // replace #hashtags
-      replacedText = replacedText.replace(replacePattern, '$1<a href="#/hashtag/$2" >#$2</a>');
+      replacedText = replacedText.replace(replacePattern, '$1<a href="/hashtag/$2" >#$2</a>');
 
       // avoid escaping HTML
       $sce.trustAsHtml(replacedText);

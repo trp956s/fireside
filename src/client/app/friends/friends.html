@@ -2,7 +2,7 @@
   <div>
     <h1>Friends</h1>
     <div ng-repeat="friend in vm.friends" class="clearfix">
-      <a href="#/friends/{{friend.profile.uid}}">
+      <a href="/friends/{{friend.profile.uid}}">
         {{friend.profile.displayName}} - {{friend.profile.email}}
       </a>
     </div>
@@ -22,7 +22,7 @@
       <h3>Search Results</h3>
       <div ng-if="vm.searchResults.length === 0">Sorry, we didn't find any matches.</div>
       <ul ng-repeat="result in vm.searchResults" class="clearfix">
-        <li><a href="#/friends/{{result.uid}}">{{result.displayName}} - {{result.email}}</a></li>
+        <li><a href="/friends/{{result.uid}}">{{result.displayName}} - {{result.email}}</a></li>
       </ul>
     </div>
   </div>
