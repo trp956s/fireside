@@ -23,7 +23,7 @@
   function FirebaseRefService() {
     return {
       db: firebase.database().ref(), // TODO - Return the Database Reference [START-2]
-      storage: firebase.storage().ref(), // TODO - Return the Storage Reference [IMG-1]
+      storage: {}, // TODO - Return the Storage Reference [IMG-1]
     };
   }
 

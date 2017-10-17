@@ -11,7 +11,7 @@
 
   function ImagesService(FirebaseRef) {
     // TODO - Create a reference to the images folder in storage (in /images) [IMG-2]
-    var firebaseImages = FirebaseRef.storage.child('images');
+    var firebaseImages = {};
 
     /**
     * Upload an image to firebase storage
@@ -21,8 +21,6 @@
     */
     function uploadImage(profile, image) {
       // TODO - save an image to Firebase in a user-based path (/images/{userId}/{timestamp}/{imageName}) [IMG-3]
-      var imageLocation = profile.uid + '/' + Date.now() + '-' + image.name;
-      return firebaseImages.child(imageLocation).put(image);
     } // uploadImage
 
     /**
@@ -32,7 +30,6 @@
     */
     function deleteImage(location) {
       // TODO (optional) - delete the given image
-      firebaseImages.child(location).delete();
     } // deleteImage
 
 
@@ -48,4 +45,4 @@
 
   }
 
-}());
+} ());
