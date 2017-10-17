@@ -8,8 +8,6 @@
     .service('FirebaseRef', FirebaseRefService);
 
   // TODO - Initialize the Firebase App here [START-1]
-  firebase.initializeApp({
-  });
 
   /**
    * Create Firebase references
@@ -17,7 +15,7 @@
    */
   function FirebaseRefService() {
     return {
-      db: firebase.database().ref(), // TODO - Return the Database Reference [START-2]
+      db: {}, // TODO - Return the Database Reference [START-2]
       storage: {}, // TODO - Return the Storage Reference [IMG-1]
     };
   }
