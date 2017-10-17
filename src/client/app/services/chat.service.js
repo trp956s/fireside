@@ -18,7 +18,7 @@
          */
         function listChats() {
             // TODO - Return all public chats (from /chats) [RTC-1]
-            return $firebaseArray(FirebaseRef.db.child('chats'));
+            return [];
         }
 
         /**
@@ -42,7 +42,6 @@
          */
         function createChat(uid, chatData, friendId) {
             // TODO - Get Key for new Chat by pushing a new chat (to /chats) [RTC-2]
-            var chatId = FirebaseRef.db.child('/chats').push().key;
 
             //  Write the new chat's chatData either in public chat
             //  OR
@@ -52,7 +51,6 @@
             // Public chat
             if (!friendId) {
                 // TODO - Add the Chat Data to the updates for the Public Chat object (in /chats/{chatId}) [RTC-3]
-                updates['/chats/' + chatId] = chatData;
             }
 
             // Private Chat
@@ -66,7 +64,6 @@
             }
 
             // TODO - Perform the Database Update and return a Promise [RTC-4]
-            return FirebaseRef.db.update(updates);
         }
 
         /**
