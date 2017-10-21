@@ -1,5 +1,5 @@
 <main class="chat">
-  <div ng-if="vm.currentUser">
+  <div ng-if="vm.currentUser.profile">
     <h1>Chat</h1>
     <form ng-submit="vm.newChat(vm.content)">
       <div class="input-group" ng-if="vm.postType === 'text'">

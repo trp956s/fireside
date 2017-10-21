@@ -14,12 +14,10 @@
     }
 
     // Get the current user's information
-    if (currentUser) {
-      currentUser.profile = Profile.getById(currentUser.uid);
-    }
+    vm.currentUser = currentUser || {};
+    vm.currentUser.profile = currentUser ? Profile.getById(currentUser.uid) : Profile.getById('');
 
     // Config
-    vm.currentUser = currentUser;
     vm.postType = 'text';
     vm.uploadingImages = false;
 
@@ -52,7 +50,7 @@
      * @param content
      */
     vm.newChat = function (content) {
-      Chats.postMessage(currentUser.profile, content, friendId).then(
+      Chats.postMessage(vm.currentUser.profile, content, friendId).then(
         disableSpinner, handleError);
     };
 
@@ -76,9 +74,9 @@
       }
 
       // Upload Image into Firebase Storage and add to Chat
-      Images.uploadImage(currentUser.profile, image)
+      Images.uploadImage(vm.currentUser.profile, image)
         .then(function (url) {
-          Chats.postImage(currentUser.profile, url.a.downloadURLs[0], friendId).then(
+          Chats.postImage(vm.currentUser.profile, url.a.downloadURLs[0], friendId).then(
             disableSpinner, handleError);
         });
     };
