@@ -23,7 +23,7 @@
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
             //  TODO: return user authencation information if available
-            return {};
+            return null;
           }]
         }
       })
@@ -34,7 +34,7 @@
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
             //  TODO: return user authencation information if available
-            return {};
+            return null;
           }]
         }
       })
@@ -50,7 +50,7 @@
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
             //  TODO: return user authencation information if available
-            return {};
+            return null;
           }]
         }
       })
@@ -61,7 +61,7 @@
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
             //  TODO: return user authencation information if available
-            return {};
+            return null;
           }]
         }
       })
