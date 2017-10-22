@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Fireside Chat Application for the Playing With Fire Workshop",
   "main": "gulpfile.js",
-  "scripts": {
-    "start": "gulp serve-dev"
-  },
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.7.9",
@@ -44,6 +41,7 @@
     "yargs": "^4.7.0"
   },
   "scripts": {
+    "start": "gulp build && gulp serve-dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mx3 Studio",
