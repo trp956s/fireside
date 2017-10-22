@@ -10,8 +10,7 @@
     .factory('Images', ['FirebaseRef', ImagesService]);
 
   function ImagesService(FirebaseRef) {
-    // TODO - Create a reference to the images folder in storage (in /images) [IMG-2]
-    var firebaseImages = {};
+    var firebaseImages = FirebaseRef.storage.child('images');
 
     /**
     * Upload an image to firebase storage
@@ -20,8 +19,8 @@
     * @return {Promise} - firebase response
     */
     function uploadImage(profile, image) {
-      // TODO - save an image to Firebase in a user-based path (/images/{userId}/{timestamp}/{imageName}) [IMG-3]
-    } // uploadImage
+      return firebaseImages.child(`users/${profile.uid}/`).put(image);
+    } 
 
     /**
     * Delete an image from firebase storage

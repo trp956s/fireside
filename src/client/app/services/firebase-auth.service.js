@@ -20,8 +20,7 @@
      * @return Promise
      */
     function authenticate(credentials) {
-      // TODO - Login using Google OAuth, making sure to return the Promise [AUTH-1]
-      // TODO - Call processUserCredential upon successful login, returning the Promise [AUTH-2]
+      return $firebaseAuth().$signInWithPopup('google').catch(console.log).then(processUserCredential);
     }
 
     /**
@@ -29,7 +28,7 @@
      * @return Promise
      */
     function logout() {
-      // TODO - Logout, making sure to return the Promise [AUTH-3]
+      return $firebaseAuth().$signOut();
     }
 
 

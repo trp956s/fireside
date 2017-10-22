@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Fireside Chat Application for the Playing With Fire Workshop",
   "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp serve-dev"
+  },
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.7.9",

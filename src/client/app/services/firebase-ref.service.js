@@ -7,7 +7,9 @@
   angular.module('app.svc')
     .service('FirebaseRef', FirebaseRefService);
 
-  // TODO - Initialize the Firebase App here [START-1]
+    // Initialize Firebase
+  let config = {see:'add firebase to your web app'};
+  firebase.initializeApp(config);
 
   /**
    * Create Firebase references
@@ -15,8 +17,8 @@
    */
   function FirebaseRefService() {
     return {
-      db: {}, // TODO - Return the Database Reference [START-2]
-      storage: {}, // TODO - Return the Storage Reference [IMG-1]
+      db: firebase.database().ref(), 
+      storage: firebase.storage().ref()
     };
   }
 

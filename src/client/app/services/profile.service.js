@@ -18,8 +18,8 @@
      * @returns {Promise<FirebaseObject>} - user info
      */
     function getProfileById(uid) {
-      // TODO - Return user profile [AUTH-4]
-      return {};
+      let ref = FirebaseRef.db.child('/users/').child(uid).child('profile');
+      return $firebaseObject(ref);
     }
 
     /**
@@ -30,8 +30,9 @@
      */
     function saveProfile(userProfile, provider) {
       var updates = {};
-      // TODO - Update the global profile with the new profile data (under /profiles) [AUTH-5]
-      // TODO - Update the user profile with the new profile data (under /users/{userId}/profile) [AUTH-5]
+      updates[`/profiles/${userProfile.uid}`] = userProfile;
+      updates[`/users/${userProfile.uid}/profile`] = userProfile;
+      return FirebaseRef.db.update(updates);
     }
 
 

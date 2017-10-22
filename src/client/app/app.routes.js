@@ -19,22 +19,18 @@
         controller: 'ChatController as vm',
         templateUrl: 'app/chat/chat.html',
         active: 'chat',
-        // TODO - Add a resolve that provides an optional currentUser object [AUTH-7]
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            //  TODO: return user authencation information if available
-            return {};
+            return FirebaseAuth.$waitForSignIn();
           }]
         }
       })
       .when('/hashtag/:hash', {
         templateUrl: 'app/chat/chat.html',
         controller: 'ChatController as vm',
-        // TODO - Add a resolve that provides an optional currentUser object [AUTH-7]
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            //  TODO: return user authencation information if available
-            return {};
+            return FirebaseAuth.$waitForSignIn();
           }]
         }
       })
@@ -46,22 +42,22 @@
       .when('/friends', {
         templateUrl: 'app/friends/friends.html',
         controller: 'FriendsController as vm',
-        // TODO - Add a resolve that requires authentication and provides a currentUser object [AUTH-8]
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            //  TODO: return user authencation information if available
-            return {};
+            console.log('current user');
+            let req = FirebaseAuth.$requireSignIn();
+            return req;
           }]
         }
       })
       .when('/friends/:friend', {
         templateUrl: 'app/chat/chat.html',
         controller: 'ChatController as vm',
-        // TODO - Add a resolve that requires authentication and provides a currentUser object [AUTH-8]
         resolve: {
           currentUser: ['FirebaseAuth', function(FirebaseAuth) {
-            //  TODO: return user authencation information if available
-            return {};
+            console.log('current user');
+            let req = FirebaseAuth.$requireSignIn();
+            return req;
           }]
         }
       })

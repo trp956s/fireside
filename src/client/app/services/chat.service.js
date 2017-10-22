@@ -17,8 +17,20 @@
          * @return array of chat objects
          */
         function listChats() {
-            // TODO - Return all public chats (from /chats) [RTC-1]
-            return [];
+            // reference to database root: /
+            var db = firebase.database().ref();
+
+            // reference to chats
+            var chatsRef = db.child('/chats');
+
+            // read
+            chatsRef.child('-Kf9kfiG0rwnlB1gtquA')
+            .once('value').then(function(snapshot) {
+                var message = snapshot.val().content;
+                console.log(message);
+            });
+
+            return $firebaseArray(chatsRef);
         }
 
         /**
@@ -28,8 +40,7 @@
          * @return array of chat objects
          */
         function listChatsWithFriend(uid, friendId) {
-            // TODO - Return all chats between friends [PVT-2]
-            return [];
+            return $firebaseArray(FirebaseRef.db.child(`/users/${uid}/chats/${friendId}`));
         }
 
         /**
@@ -41,29 +52,26 @@
          * @return Promise
          */
         function createChat(uid, chatData, friendId) {
-            // TODO - Get Key for new Chat by pushing a new chat (to /chats) [RTC-2]
+            var newUpdateKey = FirebaseRef.db.child('chats').push().key;
 
             //  Write the new chat's chatData either in public chat
             //  OR
             //  simultaneously in user's and friend's profile chat lists
             var updates = {};
 
-            // Public chat
-            if (!friendId) {
-                // TODO - Add the Chat Data to the updates for the Public Chat object (in /chats/{chatId}) [RTC-3]
-            }
+            let isPublicChat = !friendId;
 
-            // Private Chat
-            if (friendId) {
-                // TODO - Add the Chat Data to the updates for YOUR Friend Chat object [PVT-3]
-
-                // Don't want to save it twice if you are chatting with yourself
-                if (friendId !== uid) {
-                    // TODO - Add the Chat Data to the updates for your FRIEND'S Friend Chat object [PVT-3]
+            if (isPublicChat) {
+                updates[`/chats/${newUpdateKey}`] = chatData;
+            } else {
+                updates[`/users/${uid}/chats/${friendId}/${newUpdateKey}`] = chatData;
+                
+                if(friendId !== uid){
+                    updates[`/users/${friendId}/chats/${uid}/${newUpdateKey}`] = chatData;
                 }
             }
 
-            // TODO - Perform the Database Update and return a Promise [RTC-4]
+            return FirebaseRef.db.update(updates);
         }
 
         /**
@@ -74,7 +82,9 @@
          */
         function createChatDataForProfile(profile) {
             return {
-                // TODO - Add uid, avatar, and name from Profile [AUTH-6]
+                uid: profile.uid,
+                photoURL: profile.photoURL,
+                displayName: profile.displayName,
                 timestamp: new Date().toUTCString()
             };
         }

@@ -58,7 +58,7 @@
           <img class="avatar" ng-if="chat.photoURL && chat.uid !== vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
           <span class="message">
             <span ng-bind-html="chat.content | hashTagLink"></span>
-            <!-- <img ng-if="chat.sentImage" ng-src="{{chat.sentImage}}" class="img-rounded" alt="User created image"> -->
+            <img ng-if="chat.sentImage" ng-src="{{chat.sentImage}}" class="img-rounded" alt="User created image">
           </span>
           <img class="avatar" ng-if="chat.photoURL && chat.uid === vm.currentUser.uid" ng-src="{{chat.photoURL}}" alt="avatar">
         </div>
